@@ -16,6 +16,8 @@ const Header = () => {
     return (
         <>
             <div className={styles.header}>
+
+                {/* top header */}
                 <div className={styles.top_header}>
                     <a className={styles.top_menu}>
                         <div className={styles.top_icon}>
@@ -23,6 +25,8 @@ const Header = () => {
                         </div>
                         <img className={styles.top_logo} src={logo} alt="Amazon logo" />
                     </a>
+
+                    {/* right header */}
                     <div className={styles.right_header}>
                         <a href="#" className={styles.location}>
                             <LuMapPin />
@@ -48,7 +52,6 @@ const Header = () => {
                                 </div>
                             </div>
                         </a>
-
                         <a className={styles.account}>
                             <p className={styles.account_greeting}>
                                 <span className={styles.greeting_text}>Hello, </span>
@@ -79,6 +82,8 @@ const Header = () => {
                         <IoSearch size={25} />
                     </div>
                 </div>
+
+                {/* bottom header */}
                 <div className={styles.bottom_header}>
                     <ul>
                         <li className={styles.bottom_all}>

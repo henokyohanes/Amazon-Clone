@@ -1,5 +1,7 @@
+/* top header */
 .top_logo {
     width: 7em;
+    padding: .35em;
 }
 
 .top_menu {
@@ -28,14 +30,11 @@
     color: white;
 }
 
-.top_header a:hover {
-    border: 1px solid white;
-}
-
 .cart {
     color: white;
     display: flex;
     align-items: center;
+    padding: .2em;
 }
 
 .cart_count {
@@ -47,6 +46,7 @@
     margin-top: -1.07em;
 }
 
+/* bottom header */
 .bottom_header ul {
     display: flex;
     list-style: none;
@@ -55,7 +55,7 @@
     color: white;
     white-space: nowrap;
     padding: .5em 1.5em;
-    font-size: 1em;
+    font-size: .8em;
     align-items: center;
 }
 
@@ -255,10 +255,11 @@
     }
 
     .cart_count {
+        border-radius: 50%;
         font-size: 1.52em;
-        margin-left: -1.5em;
+        margin-left: -1.6em;
         margin-top: -1.05em;
-        padding: .04em .005em;
+        padding: .04em .1em;
     }
 
     .cart_text {
@@ -281,4 +282,8 @@
         background-color: #30445c;
     }
 
+    .top_header a:hover {
+        border: 1px solid white;
+        cursor: pointer;
+    }
 }

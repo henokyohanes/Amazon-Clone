@@ -1,7 +1,6 @@
 /* top header */
 .top_logo {
     width: 7em;
-    padding: .35em;
 }
 
 .top_menu {
@@ -80,7 +79,6 @@
     .top_menu {
         color: white;
         display: flex;
-        align-items: center;
         gap: 1em;
     }
 
@@ -131,14 +129,14 @@
         display: flex;
         align-items: center;
         gap: .5em;
-        font-size: .9em;
+        font-size: .8em;
     }
 
     .join_prime {
         background-color: #1859e6;
         border-radius: 2em;
         padding: .2em .6em;
-        font-size: .9em;
+        font-size: .8em;
     }
 
     .delivery_container {
@@ -159,6 +157,10 @@
     .search_mobile,
     .delivery_container {
         display: none;
+    }
+
+    .top_logo {
+        padding: .35em;
     }
 
     .flag {

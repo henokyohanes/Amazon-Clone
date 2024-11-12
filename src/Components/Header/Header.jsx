@@ -133,7 +133,7 @@ const Header = () => {
             </div>
             <div className={styles.delivery_container}>
                 <div className={styles.delivery}>
-                    <LuMapPin size={25} />
+                    <LuMapPin size={20} />
                     <p>Delivering to Houston-Update</p>
                     <IoIosArrowDown size={20} />
                 </div>

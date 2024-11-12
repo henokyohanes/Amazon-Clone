@@ -1,0 +1,50 @@
+.carousel {
+    position: relative;
+    width: 90%;
+    margin: auto;
+}
+
+.carousel_shadow {
+    position: relative;
+}
+
+.carousel_shadow::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40vw;
+    background-image: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0), rgba(255, 255, 255));
+}
+
+.arrowPrev, .arrowNext {
+    position: absolute;
+    top: 0;
+    width: 5vw;
+    height: 50%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 3vw);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.arrowPrev {
+    left: 0;
+}
+
+.arrowNext {
+    right: 0;
+}
+
+.arrowPrev:hover, .arrowNext:hover {
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 991px) {
+    .carousel {
+        width: 100%;
+    }
+}

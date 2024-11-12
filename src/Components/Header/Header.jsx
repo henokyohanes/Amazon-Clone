@@ -14,7 +14,7 @@ import styles from "./Header.module.css";
 const Header = () => {
 
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.header}>
 
                 {/* top header */}
@@ -139,7 +139,7 @@ const Header = () => {
                 </div>
                 <span className={styles.join_prime}>Join Prime</span>
             </div>
-        </>
+        </div>
     );
 }
 

@@ -1,3 +1,8 @@
+.carousel_container {
+    position: relative;
+    overflow: hidden;
+}
+
 .carousel {
     position: relative;
     width: 90%;

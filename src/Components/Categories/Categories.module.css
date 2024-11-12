@@ -1,6 +1,6 @@
 .categories_container {
     position: relative;
-    width: 90%;
+    width: 84%;
     margin: auto;
     margin-top: -16vw;
 }
@@ -8,7 +8,7 @@
 .categories {
     display: flex;
     justify-content: center;
-    gap: 4%;
+    gap: 7%;
     width: 90%;
     margin: auto;
 }
@@ -18,10 +18,10 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1vw;
-    padding: .5vw;
+    gap: .3vw;
+    padding: .3vw;
     background-color: white;
-    border-radius: 1vw;
+    border-radius: .8vw;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 

@@ -17,7 +17,7 @@ const CarouselEffect = () => {
     const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
     return (
-        <>
+        <div className={styles.carousel_container}>
             <Carousel
                 className={styles.carousel}
                 showThumbs={false}
@@ -61,7 +61,7 @@ const CarouselEffect = () => {
                 ))}
             </Carousel>
             <div className={styles.carousel_shadow}></div>
-        </>
+        </div>
     );
 }
 

@@ -1,3 +1,7 @@
+.container {
+    position: relative;
+}
+
 /* top header */
 .top_logo {
     width: 7em;

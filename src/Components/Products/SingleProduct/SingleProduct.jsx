@@ -4,8 +4,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import CurrencyFormat from "../../CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import styles from "../Products.module.css";
+import { DataContext } from "../../DataProvider/DataProvider";
+import { ActionTypes } from "../../../utils/actionType";
 
 const SingleProduct = ({image, id, title, rating, price, description, flex, detail, addButton,}) => {
+
+  const [state, dispatch] = useContext(DataContext);
 
   const addtocart = () => {
     dispatch({

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/Images/amazon-logo.png";
 import flag from "../../assets/Images/us-flag.png";
 import { LuMapPin } from "react-icons/lu";
@@ -19,12 +20,12 @@ const Header = () => {
 
                 {/* top header */}
                 <div className={styles.top_header}>
-                    <a className={styles.top_menu}>
+                    <Link to="/" className={styles.top_menu}>
                         <div className={styles.top_icon}>
                             <AiOutlineMenu size={30} />
                         </div>
                         <img className={styles.top_logo} src={logo} alt="Amazon logo" />
-                    </a>
+                    </Link>
 
                     {/* right header */}
                     <div className={styles.right_header}>
@@ -52,7 +53,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </a>
-                        <a className={styles.account}>
+                        <Link to="/auth" className={styles.account}>
                             <p className={styles.account_greeting}>
                                 <span className={styles.greeting_text}>Hello, </span>
                                 sign in
@@ -64,16 +65,16 @@ const Header = () => {
                             <div className={styles.account_text}>
                                 Account & Lists <IoMdArrowDropdown />
                             </div>
-                        </a>
-                        <a className={styles.order}>
+                        </Link>
+                        <Link to="/orders" className={styles.order}>
                             <p className={styles.return_text}>Returns</p>
                             <p className={styles.order_text}> & Orders</p>
-                        </a>
-                        <a className={styles.cart}>
+                        </Link>
+                        <Link to="/cart" className={styles.cart}>
                             <BiCartAdd size={45} />
                             <span className={styles.cart_count}>0</span>
                             <p className={styles.cart_text}>Cart</p>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.search_mobile}>

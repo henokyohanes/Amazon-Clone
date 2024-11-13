@@ -1,0 +1,11 @@
+.title {
+    font-size: clamp(.8em, 1.5vw, 1.5em);
+    font-weight: bold;
+    padding: 1vw;
+    border-bottom: 1px solid gray;
+}
+
+.product_detail {
+    width: 80%;
+    margin: 3vw auto;
+}

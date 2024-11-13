@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../DataProvider/DataProvider";
 import { Link } from "react-router-dom";
 import logo from "../../assets/Images/amazon-logo.png";
 import flag from "../../assets/Images/us-flag.png";
@@ -13,6 +14,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import styles from "./Header.module.css";
 
 const Header = () => {
+
+    const [{ cart }, dispatch] = useContext(DataContext);
+    const total = cart.reduce((total, item) => total + item.quantity, 0);
 
     return (
         <div className={styles.container}>
@@ -72,7 +76,7 @@ const Header = () => {
                         </Link>
                         <Link to="/cart" className={styles.cart}>
                             <BiCartAdd size={45} />
-                            <span className={styles.cart_count}>0</span>
+                            <span className={styles.cart_count}>{cart ? total : 0}</span>
                             <p className={styles.cart_text}>Cart</p>
                         </Link>
                     </div>

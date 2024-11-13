@@ -3,7 +3,7 @@ import axios from 'axios'
 import SingleProduct from './SingleProduct/SingleProduct';
 import styles from './Products.module.css'
 
-export default function Products() {
+const Products = () => {
 
     const [product, setProduct] = useState([]);
 
@@ -22,3 +22,5 @@ export default function Products() {
         </div>
     )
 };
+
+export default Products

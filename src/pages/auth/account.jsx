@@ -1,4 +1,6 @@
 import React from 'react'
+import styles from './Auth.module.css'
+import { auth } from '../../utils/firebase'
 import { Link } from 'react-router-dom'
 
 export default function Account() {

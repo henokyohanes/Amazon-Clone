@@ -83,7 +83,7 @@
 
     .flex_product {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 2vw;
         padding: 1vw;
     }

@@ -1,0 +1,116 @@
+.logo {
+    width: clamp(4em, 10vw, 7em);
+}
+
+.checkout_header {
+    background-color: rgb(241, 240, 240);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18%;
+    padding: 1.5em;
+    border: 1px solid lightgray;
+}
+
+.checkout_title {
+    font-size: clamp(.7em, 1.5vw, 1.5em);
+    font-weight: bold;
+}
+
+.checkout_count {
+    color: #2162A1;
+}
+
+.checkout_address {
+    width: clamp(1em, 90vw, 60em);
+    display: flex;
+    justify-content: space-between;   
+    padding: 1em;
+    margin: auto;
+    border-bottom: 1px solid lightgray;
+}
+
+.all_titles {
+    font-size: clamp(.6em, 1.5vw, 1.2em);
+    font-weight: bold;
+}
+
+.address {
+    font-size: clamp(.6em, 1.5vw, 1em);
+}
+
+.change {
+    font-size: clamp(.6em, 1.5vw, 1em);
+    color: #2162A1;
+}
+
+.checkout_payment {
+    width: clamp(1em, 90vw, 60em);
+    display: flex;
+    justify-content: space-between;   
+    padding: 1em;
+    margin: auto;
+    border-bottom: 1px solid lightgray;
+}
+
+.payment {
+    width: 50%;
+}
+
+.error {
+    font-size: clamp(.5em, 1.5vw, 1em);
+    color: red;
+}
+
+.checkout_summary {
+    width: clamp(1em, 90vw, 60em);
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: auto;
+    border-bottom: 1px solid lightgray;
+}
+
+.products img {
+    width: clamp(4em, 10vw, 20em);
+}
+
+.products p {
+    font-size: clamp(.6em, 1.5vw, 1.2em) !important;
+}
+
+.place_order {
+    width: clamp(1em, 90vw, 60em);
+    display: flex;
+    justify-content: space-between; 
+    gap: 1em;  
+    padding: 1em 0.5em;
+    margin: 2em auto;
+    border: 1px solid lightgray;
+    border-radius: .5em;
+}
+
+.place_order_btn {
+    font-size: clamp(.7em, 1.5vw, 1em);
+    border: none;    
+    background-color: #FFD814;
+    padding: 0 1em;
+    border-radius: 1.5em;
+    cursor: pointer;
+    min-width: 10em;
+}
+
+.place_order_btn:hover {
+    background-color: #F3A847;
+}
+
+.order_total {
+    font-size: clamp(.8em, 1.5vw, 1.2em);
+    font-weight: bold;
+    color: red;
+}
+
+.notice {
+    font-size: clamp(.5em, 1.5vw, .8em);
+    /* max-width: 29em; */
+}

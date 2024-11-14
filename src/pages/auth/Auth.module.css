@@ -76,7 +76,6 @@
     margin: 0 0.5em;
 }
 
-
 .account_button {
     display: block;
     width: 26em;
@@ -94,4 +93,13 @@
 
 .account_button:focus {
     outline: 2px solid skyblue;
+}
+
+.error {
+    display: block;
+    font-weight: bold;
+    color: red;
+    font-size: 1em;
+    text-align: center;
+    margin: -3em 0 4em 0;   
 }

@@ -15,7 +15,7 @@ import styles from "./Header.module.css";
 
 const Header = () => {
 
-    const [{ cart }, dispatch] = useContext(DataContext);
+    const [{user, cart }, dispatch] = useContext(DataContext);
     const total = cart.reduce((total, item) => total + item.quantity, 0);
 
     return (
@@ -57,10 +57,10 @@ const Header = () => {
                                 </div>
                             </div>
                         </a>
-                        <Link to="/auth" className={styles.account}>
+                        <Link to={user ? "/account" : "/auth"} className={styles.account}>
                             <p className={styles.account_greeting}>
                                 <span className={styles.greeting_text}>Hello, </span>
-                                sign in
+                                {user ? (user?.email.split("@")[0]) : "Sign in"}
                                 <span className={styles.account_icon}>
                                     <IoIosArrowForward />
                                     <MdAccountBox size={40} />

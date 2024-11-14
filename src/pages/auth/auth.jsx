@@ -12,7 +12,7 @@ import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { ActionTypes } from "../../utils/actionType";
 import { FadeLoader } from "react-spinners";
 
-export default function Auth() {
+const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,7 +22,6 @@ export default function Auth() {
   const navigate = useNavigate();
 
   const { state: navstate } = useLocation()
-  console.log(navstate);
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -108,3 +107,5 @@ export default function Auth() {
     </Layout>
   );
 }
+
+export default Auth

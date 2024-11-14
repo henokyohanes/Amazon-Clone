@@ -1,0 +1,97 @@
+.logo {
+    width: 7em;
+    margin: 1em auto;
+    display: block;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.container {
+    width: 22em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: auto;
+    border: 1px solid lightgray;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.input {
+    border: 1px solid lightgray;
+    border-radius: .5em;
+    padding: .5em;
+}
+
+.input:focus {
+    outline: 2px solid skyblue;
+}
+
+.button {
+    border: none;
+    text-align: center;
+    background-color: #FFD814;
+    padding: .5em;
+    border-radius: .5em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.button:hover {
+    background-color: #F3A847;
+}
+
+.button:focus {
+    outline: 2px solid skyblue;
+}
+
+.text {
+    font-size: .8em;
+}
+
+.account_text {
+    font-size: 0.7em;
+    margin: 3em 0 1em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.account_text::before,
+.account_text::after {
+    content: "";
+    flex-grow: 1;
+    max-width: 10em;
+    border-top: 1px solid lightgray;
+    margin: 0 0.5em;
+}
+
+
+.account_button {
+    display: block;
+    width: 26em;
+    border: 1px solid lightgray;
+    text-align: center;
+    padding: .8em;
+    border-radius: .5em;
+    cursor: pointer;
+    margin: 0 auto 5em auto;
+}
+
+.account_button:hover {
+    background-color: lightgray;
+}
+
+.account_button:focus {
+    outline: 2px solid skyblue;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { FaLock } from "react-icons/fa6";
@@ -26,7 +26,7 @@ export default function Payment() {
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const navigate = useNavigate();
-  const formRef = useRef(null); // Create a form reference
+  // const formRef = useRef(null);
 
   const cardElementOptions = {
     style: {
@@ -123,7 +123,6 @@ export default function Payment() {
           className={styles.place_order_btn}
           type="submit"
           disabled={processing}
-          onClick={() => formRef.current.requestSubmit()}
         >
           {processing ? <FadeLoader /> : "place your order"}
         </button>

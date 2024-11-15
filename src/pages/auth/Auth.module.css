@@ -103,3 +103,51 @@
     text-align: center;
     margin: -3em 0 4em 0;   
 }
+
+.signout_container {
+    width: 22em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    margin: 1em auto;
+    padding: 2em;
+}
+
+.signout_title {
+    font-size: clamp(1.2em, 1.5vw, 1.6em);
+    font-weight: bold;
+    padding: .5em 2em;
+    border-bottom: 1px solid gray;    
+}
+
+.signout_text {
+    font-size: clamp(.8em, 1.5vw, 1em);
+}
+
+.signout_text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #F3A847;
+}
+
+.signout_button {
+    display: block;
+    width: 22em;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    background-color: #FFD814;
+    padding: .5em 0;
+    margin: 2em auto;
+    border-radius: .5em;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.signout_button:hover {
+    background-color: #F3A847;
+}

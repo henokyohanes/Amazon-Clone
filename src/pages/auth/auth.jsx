@@ -85,7 +85,7 @@ const Auth = () => {
               type="button"
               onClick={handleAuth}
             >
-              {loading.signin ? <FadeLoader /> : "Sign In"}
+              {loading.signin ? <FadeLoader width={1} height={1}/> : "Sign In"}
             </button>
           </form>
           <p className={styles.text}>

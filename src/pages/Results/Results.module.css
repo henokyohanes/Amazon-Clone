@@ -1,0 +1,22 @@
+.title {
+    font-size: clamp(.8em, 1.5vw, 1.5em);
+    font-weight: bold;
+    padding: 1vw;
+    border-bottom: 1px solid gray;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    margin: auto;
+    padding: 2vw 0;
+    grid-gap: 2vw;
+}
+
+@media screen and (min-width: 992px) {
+    .products {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+}

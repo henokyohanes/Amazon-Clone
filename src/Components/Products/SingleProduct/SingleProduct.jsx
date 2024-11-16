@@ -18,18 +18,27 @@ const SingleProduct = ({image, id, title, rating, price, description, flex, deta
     });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling effect
+    });
+  };
+
   return (
     <div
       className={flex ? styles.flex_product : styles.product}
       key={styles.product}
     >
       <div>
-        <Link to={`/products/${id}`}>
+        <Link to={`/products/${id}`} onClick={scrollToTop}>
           <img className={styles.image} src={image} alt="Product image" />
         </Link>
       </div>
       <div>
-        <p className={styles.title}>{title}</p>
+        <Link to={`/products/${id}`} onClick={scrollToTop}>
+          <p className={styles.title}>{title}</p>
+        </Link>
         {detail && <p className={styles.description}>{description}</p>}
         <div className={styles.rating}>
           <Rating

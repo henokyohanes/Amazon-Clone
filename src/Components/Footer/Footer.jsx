@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { IoMdArrowDropup } from "react-icons/io";
 import logo from '../../assets/Images/amazon-logo.png'
 import { GrLanguage } from "react-icons/gr";
@@ -8,12 +9,20 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
-      <a href="#" className={styles.back_top}>
+      {/* back to top section */}
+      <div onClick={scrollToTop} className={styles.back_top}>
         <IoMdArrowDropup />
         <p>Back to top</p>
-      </a>
+      </div>
 
       {/* mobile footer section */}
       <div className={styles.mobile_footer}>
@@ -98,10 +107,11 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.footer_background}>
-
         {/* middle footer section */}
         <div className={styles.footer_logo}>
-          <img className={styles.logo} src={logo} alt="Amazon logo" />
+          <Link to="/" onClick={scrollToTop} className={styles.logo_link}>
+            <img className={styles.logo} src={logo} alt="Amazon logo" />
+          </Link>
           <div className={styles.logo_language}>
             <GrLanguage size={15} />
             <span>English</span>
@@ -333,7 +343,7 @@ const Footer = () => {
           </p>
           <p></p>
         </div>
-      </div >
+      </div>
     </>
   );
 }

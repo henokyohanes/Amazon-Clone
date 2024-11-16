@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import Layout from "../../Components/Layout/Layout";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { FaLock } from "react-icons/fa6";
@@ -26,7 +26,7 @@ export default function Payment() {
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
   const navigate = useNavigate();
-  // const formRef = useRef(null);
+  const formRef = useRef(null);
 
   const cardElementOptions = {
     style: {
@@ -42,6 +42,10 @@ export default function Payment() {
 
   const handlePayment = async (e) => {
     e.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
 
     try {
       setProcessing(true);
@@ -61,8 +65,6 @@ export default function Payment() {
       console.log("PaymentIntent:", paymentIntent);
       console.log("user:", user.uid);
 
-      console.log("start");
-
       await setDoc(
         doc(collection(db, "users"), user.uid, "orders", paymentIntent.id),
         {
@@ -73,7 +75,6 @@ export default function Payment() {
       );
 
       dispatch({ type: ActionTypes.RESET_CART });
-      console.log("end");
       setProcessing(false);
       navigate("/orders", { state: { msg: "Payment successful!" } });
     } catch (error) {
@@ -82,6 +83,14 @@ export default function Payment() {
       console.log(error);
     }
   };
+
+  const handleSubmitButtonClick = () => {
+    console.log(formRef.current); // This will show if it's null or the actual form element.
+    if (formRef.current) {
+      formRef.current.submit();
+    }
+  };
+
   return (
     <Layout>
       <div className={styles.checkout_header}>
@@ -101,35 +110,35 @@ export default function Payment() {
         </div>
         <p className={styles.change}>Change</p>
       </div>
-      <div className={styles.checkout_payment}>
-        <p className={styles.all_titles}>2 - Payment method</p>
-        <div className={styles.payment}>
-          <form onSubmit={handlePayment}>
-            <CardElement onChange={handleChange} options={cardElementOptions} />
-            {error && <small className={styles.error}>{error}</small>}
-          </form>
-        </div>
-        <p className={styles.change}>Change</p>
-      </div>
       <div className={styles.checkout_summary}>
-        <p className={styles.all_titles}>3 - Order summary</p>
+        <p className={styles.all_titles}>2 - Order summary</p>
         <div className={styles.products}>
           {cart &&
             cart.map((item) => <SingleProduct key={item.id} {...item} flex />)}
         </div>
       </div>
       <div className={styles.place_order}>
-        <button
-          className={styles.place_order_btn}
-          type="submit"
-          disabled={processing}
-        >
-          {processing ? <FadeLoader /> : "place your order"}
-        </button>
         <span>
           <p className={styles.order_total}>order total: <CurrencyFormat value={totalPrice} /></p>
           <p className={styles.notice}>By placing your order, you agree to my Amazon-clone notice and conditions of use.</p>
         </span>
+      </div>
+      <div className={styles.checkout_payment}>
+        <p className={styles.all_titles}>3 - Payment method</p>
+        <div className={styles.payment}>
+          <form onSubmit={handlePayment} ref={formRef}>
+            <CardElement onChange={handleChange} options={cardElementOptions} />
+            {error && <small className={styles.error}>{error}</small>}
+            <button
+              className={styles.place_order_btn}
+              type="submit"
+              disabled={processing}
+            >
+              {processing ? <FadeLoader /> : "Place your order"}
+            </button>
+          </form>
+        </div>
+        <p className={styles.change}>Change</p>
       </div>
     </Layout>
   );

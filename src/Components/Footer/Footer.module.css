@@ -1,5 +1,4 @@
 .back_top {
-    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,10 +139,6 @@
 
     .logo {
         width: 6em;
-    }
-
-    .logo:hover {
-        cursor: pointer;
     }
 
     .logo_language {

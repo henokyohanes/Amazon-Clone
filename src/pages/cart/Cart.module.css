@@ -1,7 +1,7 @@
 .title {
     font-size: clamp(.8em, 1.5vw, 1.5em);
     font-weight: bold;
-    padding: 1vw;
+    padding: 1em;
     border-bottom: 1px solid gray;
 }
 
@@ -43,32 +43,87 @@
 
 .cart_container {
     background-color: white;
-    width: 70%;
-
+    margin: 2vw;
+    padding: 1em;
+    border-radius: .8em;
 }
 
 .cart_container img {
-    width: 8vw;
+    width: clamp(1em, 14vw, 12em);
     object-fit: contain;
 }
 
-.cart_container .product .title{
-    font-size: 10px;
+.cart_item {
+    gap: 2em;
+    padding: 1vw;
+    border-bottom: 1px solid lightgray;
 }
+
 
 .total_title {
     font-size: clamp(.8em, 1.5vw, 1.2em);
     padding: 1vw;
 }
 
+.button {
+    border: none;
+    padding: .4em 1em;
+    margin: .4em;
+    border-radius: .5em;
+    cursor: pointer;
+    font-size: clamp(.6em, 1.5vw, 1em);
+}
+
+.quantity {
+    font-size: clamp(.6em, 1.5vw, 1.2em);
+}
+
 .cart_divider {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
+.cart_total {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: .6em;
+    height: 100%;
+    margin: 2vw auto;
+    padding: 1em 3em 3em 3em;
+    border-radius: .8em;
+}
+
 .total_title {
-    font-size: clamp(.8em, 1.5vw, 1.5em);
+    font-size: clamp(.8em, 1.5vw, 1.2em);
+}
+
+.total_price {
+    font-size: clamp(.9em, 1.5vw, 1.4em);
     font-weight: bold;
-    padding: 1vw;
-    border-bottom: 1px solid gray;
+}
+
+.gift {
+    font-size: clamp(.7em, 1.5vw, .9em);
+}
+
+.checkout {
+    text-decoration: none;
+    text-align: center;
+    background-color: #FFD814;
+    padding: .5em 0;
+    border-radius: .8em;
+    cursor: pointer;
+    font-size: clamp(.8em, 1.5vw, 1em);
+}
+
+.checkout:hover {
+    background-color: #F3A847;
+}
+
+@media screen and (min-width: 992px) {
+    .cart_divider {
+        flex-direction: row;
+    }
 }

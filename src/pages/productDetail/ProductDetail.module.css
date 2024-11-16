@@ -9,3 +9,7 @@
     width: 80%;
     margin: 3vw auto;
 }
+
+.product_detail img {
+    width: clamp(1em, 22vw, 12em);
+}

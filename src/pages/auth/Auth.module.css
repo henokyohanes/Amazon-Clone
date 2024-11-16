@@ -151,3 +151,7 @@
 .signout_button:hover {
     background-color: #F3A847;
 }
+
+.msg {
+    color: red;
+}

@@ -46,10 +46,12 @@ export default function Orders() {
             <p>no orders yet</p>
           </div>
         )}
-        <div className={styles.orders_container}>
+        <div>
           {orders.map((order) => (
-            <div key={order.id}>
-              <p className={styles.order_number}>Order number - {order.data.created}</p>
+            <div key={order.id} className={styles.orders_container}>
+              <p className={styles.order_number}>
+                Order number - {order.data.created}
+              </p>
               {order.data.cart?.map((item) => (
                 <SingleProduct key={item.id} {...item} flex={true} />
               ))}

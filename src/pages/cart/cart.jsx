@@ -34,23 +34,22 @@ export default function Cart() {
           ) : (
             <div className={styles.cart_container}>
               {cart?.map((item) => (
-                <div key={item.id}>
+                <div key={item.id} className={styles.cart_item}>
                   <SingleProduct
                     {...item}
-                    detail={true}
                     flex={true}
                     addButton={false}
                   />
                   <div>
                     <button
-                      className={styles.remove}
+                      className={styles.button}
                       onClick={() => decrement(item)}
                     >
                       -
                     </button>
                     <span className={styles.quantity}>{item.quantity}</span>
                     <button
-                      className={styles.add}
+                      className={styles.button}
                       onClick={() => increment(item)}
                     >
                       +

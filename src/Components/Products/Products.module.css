@@ -83,13 +83,12 @@
 
     .flex_product {
         display: flex;
-        /* flex-direction: column; */
         gap: 2vw;
         padding: 1vw;
     }
 
     .flex_product .title {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
 
     .flex_product .description {
@@ -150,7 +149,7 @@
     }
 
     .flex_product .title {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
     }
 
     .flex_product .description {

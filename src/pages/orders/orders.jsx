@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import { DataContext } from '../../Components/DataProvider/DataProvider'
 import SingleProduct from '../../Components/Products/SingleProduct/SingleProduct';
+import styles from './Orders.module.css'
 
 
 export default function Orders() {
@@ -38,22 +39,24 @@ export default function Orders() {
   }, [])
   return (
     <Layout>
-      <p>your orders</p>
-      <div>
-        {orders.length === 0 && <p>no orders yet</p>}
-      </div>
-      <div>
-        {orders.map((order) => ( 
-          <div key={order.id}>
-            <p>{order.data.created}</p>
-            {order.data.cart?.map((item) => (
-              <SingleProduct key={item.id} {...item} flex={true}/>
-            
-              
-            ))}
+      <div className={styles.orders}>
+        <p className={styles.title}>your orders</p>
+        {orders.length === 0 && (
+          <div className={styles.divider}>
+            <p>no orders yet</p>
           </div>
-        ))}
+        )}
+        <div className={styles.orders_container}>
+          {orders.map((order) => (
+            <div key={order.id}>
+              <p className={styles.order_number}>Order number - {order.data.created}</p>
+              {order.data.cart?.map((item) => (
+                <SingleProduct key={item.id} {...item} flex={true} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </Layout>
-  )
+  );
 }

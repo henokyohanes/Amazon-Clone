@@ -1,0 +1,47 @@
+.orders {
+    background-color: #EAEDED;
+    padding: 2vw;
+}
+
+.title {
+    font-size: clamp(1em, 1.5vw, 1.5em);
+    font-weight: bold;
+    padding: 1vw;
+    border-bottom: 1px solid gray;
+}
+
+.divider {
+    background-color: white;
+    width: 70%;
+    display: block;
+    margin: 2vw auto;
+    padding: 2em;
+    border-radius: .5em;
+}
+
+.divider p {
+    font-size: clamp(.8em, 1.5vw, 1.2em);
+    font-weight: bold;
+    text-align: center;
+}
+
+.orders_container {
+    background-color: white;
+    width: 70%;
+    display: block;
+    margin: 2vw auto;
+    padding: 2em;
+    border-radius: .5em;
+}
+
+.order_number {
+    font-size: clamp(.8em, 1.5vw, 1.8em);
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 1em;
+}
+
+.orders_container img {
+    width: clamp(1em, 18vw, 12em);
+}

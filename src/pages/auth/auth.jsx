@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { ActionTypes } from "../../utils/actionType";
-import { FadeLoader } from "react-spinners";
+import { BeatLoader } from "react-spinners";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -85,7 +85,7 @@ const Auth = () => {
               type="button"
               onClick={handleAuth}
             >
-              {loading.signin ? <FadeLoader width={1} height={1}/> : "Sign In"}
+              {loading.signin ? <BeatLoader size={8}/> : "Sign In"}
             </button>
           </form>
           <p className={styles.text}>
@@ -100,7 +100,7 @@ const Auth = () => {
             type="button"
             onClick={handleAuth}
           >
-            {loading.signup ? <FadeLoader /> : "Create your Amazon account"}
+            {loading.signup ? <BeatLoader size={8}/> : "Create your Amazon account"}
           </button>
         {error && <span className={styles.error}>{error}</span>}
       </div>

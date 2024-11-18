@@ -50,6 +50,14 @@
     color: white;
 }
 
+h6 { 
+    font-size: clamp(.9em, 1.5vw, 1.2em);
+    text-align: center;
+    font-weight: 600;
+	color: red;
+	padding: 1em;
+}
+
 @media screen and (max-width: 991px) {
 
     .mobile_footer {

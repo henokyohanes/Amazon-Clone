@@ -344,7 +344,7 @@ const Footer = () => {
           <p className={styles.footer_copyright}>
             © 1996-2024, Amazon.com, Inc. or its affiliates
           </p>
-          <p></p>
+          <h6>This site is a clone made for educational purposes and is not affiliated with Amazon Inc.</h6>
         </div>
       </div>
     </>

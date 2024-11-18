@@ -11,9 +11,11 @@ const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const [Loadeing, setLoadering] = useState(false);
 
+  // useEffect hook to fetch product data when the component mounts or productId changes
   useEffect(() => {
     setLoadering(true);
     axios
+      // Making GET request to fetch product details from the API
       .get(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => {
         setProduct(res.data);
@@ -25,15 +27,13 @@ const ProductDetail = () => {
   }, [productId]);
   return (
     <Layout>
+      {/* Show Loader component while data is loading */}
       {Loadeing && <Loader />}
       <p className={styles.title}>Product Detail</p>
+      
+      {/* Product detail section, passing product data and additional props to SingleProduct component */}
       <div className={styles.product_detail}>
-        <SingleProduct
-          {...product}
-          flex={true}
-          detail={true}
-          addButton={true}
-        />
+        <SingleProduct {...product} flex={true} detail={true} addButton={true}/>
       </div>
     </Layout>
   );

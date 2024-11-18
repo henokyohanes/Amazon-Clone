@@ -112,5 +112,4 @@
 
 .notice {
     font-size: clamp(.5em, 1.5vw, .8em);
-    /* max-width: 29em; */
 }

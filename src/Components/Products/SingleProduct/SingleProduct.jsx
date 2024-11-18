@@ -7,10 +7,11 @@ import styles from "../Products.module.css";
 import { DataContext } from "../../DataProvider/DataProvider";
 import { ActionTypes } from "../../../utils/actionType";
 
+// Define the SingleProduct functional component
 const SingleProduct = ({image, id, title, rating, price, description, flex, detail, addButton,}) => {
-
   const [state, dispatch] = useContext(DataContext);
 
+  // Function to handle adding product to cart
   const addtocart = () => {
     dispatch({
       type: ActionTypes.ADD_TO_CART,
@@ -18,28 +19,37 @@ const SingleProduct = ({image, id, title, rating, price, description, flex, deta
     });
   };
 
+  // Function to scroll the page to the top smoothly
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling effect
+      behavior: "smooth",
     });
   };
 
   return (
+    // Main container with dynamic layout based on the 'flex' prop
     <div
       className={flex ? styles.flex_product : styles.product}
       key={styles.product}
     >
+      {/* Product image section */}
       <div>
         <Link to={`/products/${id}`} onClick={scrollToTop}>
           <img className={styles.image} src={image} alt="Product image" />
         </Link>
       </div>
+
+      {/* Product details section */}
       <div>
         <Link to={`/products/${id}`} onClick={scrollToTop}>
           <p className={styles.title}>{title}</p>
         </Link>
+
+        {/* Conditionally render product description */}
         {detail && <p className={styles.description}>{description}</p>}
+
+        {/* Rating section */}
         <div className={styles.rating}>
           <Rating
             value={rating?.rate || 0}
@@ -49,9 +59,13 @@ const SingleProduct = ({image, id, title, rating, price, description, flex, deta
           <IoIosArrowDown className={styles.arrow} />
           <p className={styles.count}>{rating?.count || 0}</p>
         </div>
+
+        {/* Price section */}
         <div className={styles.price}>
           <CurrencyFormat value={price} />
         </div>
+
+        {/* Add to Cart button (conditionally rendered) */}
         {addButton && (
           <button className={styles.button} onClick={addtocart}>
             Add to Cart

@@ -64,6 +64,7 @@
     background-color: #F5C518;
 }
 
+/* Media Queries for small screens */
 @media screen and (max-width: 991px) {
 
     .product_container {
@@ -125,6 +126,7 @@
 
 }
 
+/* Media Queries for large screens */
 @media screen and (min-width: 992px) {
 
     .product_container {

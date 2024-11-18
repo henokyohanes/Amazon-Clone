@@ -7,8 +7,10 @@ import { RiExpandUpDownFill } from "react-icons/ri";
 import flag from '../../assets/Images/us-flag.png'
 import styles from './Footer.module.css'
 
+// footer component
 const Footer = () => {
 
+  // scroll to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -107,6 +109,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.footer_background}>
+
         {/* middle footer section */}
         <div className={styles.footer_logo}>
           <Link to="/" onClick={scrollToTop} className={styles.logo_link}>

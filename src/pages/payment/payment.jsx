@@ -1,26 +1,27 @@
 import React, { useContext, useState, useRef } from "react";
-import Layout from "../../Components/Layout/Layout";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { FaLock } from "react-icons/fa6";
 import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
 import { axiosInstance } from "../../utils/axios";
-import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
 import { FadeLoader } from "react-spinners";
 import { db } from "../../utils/firebase";
 import { doc, setDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { ActionTypes } from "../../utils/actionType";
+import Layout from "../../Components/Layout/Layout";
+import CurrencyFormat from "../../Components/CurrencyFormat/CurrencyFormat";
 import SingleProduct from "../../Components/Products/SingleProduct/SingleProduct";
 import logo from "../../assets/Images/amazon-logo-1.png";
 import styles from "./Payment.module.css";
 
-export default function Payment() {
+const Payment = () => {
+  // Extracting global state for user and cart from DataContext
   const [{ user, cart }, dispatch] = useContext(DataContext);
+
+  // Calculating total items and total price in the cart
   const total = cart.reduce((total, item) => total + item.quantity, 0);
-  const totalPrice = cart.reduce(
-    (total, item) => total + item.quantity * item.price,
-    0
-  );
+  const totalPrice = cart.reduce((total, item) => total + item.quantity * item.price, 0);
+
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -28,18 +29,21 @@ export default function Payment() {
   const navigate = useNavigate();
   const formRef = useRef(null);
 
+  // Custom style for CardElement input field
   const cardElementOptions = {
     style: {
       base: {
-        fontSize: "clamp(.8em, 4vw, 1.1em)"
+        fontSize: "clamp(.8em, 4vw, 1.1em)",
       },
     },
   };
 
+  // Handle the change in CardElement input
   const handleChange = async (event) => {
     event.error ? setError(event.error.message) : setError(null);
   };
 
+  // Handle the payment process
   const handlePayment = async (e) => {
     e.preventDefault();
 
@@ -49,12 +53,16 @@ export default function Payment() {
 
     try {
       setProcessing(true);
+
+      // API call to create a payment session with the total price
       const res = await axiosInstance.post(
         `/payment/create?totalPrice=${totalPrice * 100}`
       );
 
+      // Extract client secret for Stripe payment confirmation
       const clientSecret = res.data.clientSecret;
 
+      // Confirm the payment with the Stripe API
       const confirmation = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
@@ -62,9 +70,8 @@ export default function Payment() {
       });
 
       const { paymentIntent } = confirmation;
-      console.log("PaymentIntent:", paymentIntent);
-      console.log("user:", user.uid);
 
+      // Save order details to Firebase Firestore
       await setDoc(
         doc(collection(db, "users"), user.uid, "orders", paymentIntent.id),
         {
@@ -74,26 +81,21 @@ export default function Payment() {
         }
       );
 
+      // Dispatch a reset cart action to clear the cart in global state
       dispatch({ type: ActionTypes.RESET_CART });
       setProcessing(false);
       navigate("/orders", { state: { msg: "Payment successful!" } });
     } catch (error) {
       setProcessing(false);
       setError(error.message);
-      console.log(error);
-    }
-  };
-
-  const handleSubmitButtonClick = () => {
-    console.log(formRef.current); // This will show if it's null or the actual form element.
-    if (formRef.current) {
-      formRef.current.submit();
     }
   };
 
   return (
     <Layout>
       <div className={styles.checkout_header}>
+
+        {/* Checkout header with logo and item count */}
         <img src={logo} alt="amazon logo" className={styles.logo} />
         <p className={styles.checkout_title}>
           Checkout (
@@ -102,6 +104,8 @@ export default function Payment() {
         <FaLock />
       </div>
       <div className={styles.checkout_address}>
+
+        {/* Shipping address section */}
         <p className={styles.all_titles}>1 - Shipping address</p>
         <div className={styles.address}>
           <p>{user?.email}</p>
@@ -111,6 +115,8 @@ export default function Payment() {
         <p className={styles.change}>Change</p>
       </div>
       <div className={styles.checkout_summary}>
+
+        {/* Order summary section */}
         <p className={styles.all_titles}>2 - Order summary</p>
         <div className={styles.products}>
           {cart &&
@@ -118,15 +124,24 @@ export default function Payment() {
         </div>
       </div>
       <div className={styles.place_order}>
+
+        {/* Order total and terms notice */}
         <span>
-          <p className={styles.order_total}>order total: <CurrencyFormat value={totalPrice} /></p>
-          <p className={styles.notice}>By placing your order, you agree to my Amazon-clone notice and conditions of use.</p>
+          <p className={styles.order_total}>
+            order total: <CurrencyFormat value={totalPrice} />
+          </p>
+          <p className={styles.notice}>
+            By placing your order, you agree to my Amazon-clone notice and
+            conditions of use.
+          </p>
         </span>
       </div>
       <div className={styles.checkout_payment}>
         <p className={styles.all_titles}>3 - Payment method</p>
         <div className={styles.payment}>
           <form onSubmit={handlePayment} ref={formRef}>
+            
+            {/* Stripe CardElement for credit card input */}
             <CardElement onChange={handleChange} options={cardElementOptions} />
             {error && <small className={styles.error}>{error}</small>}
             <button
@@ -143,3 +158,5 @@ export default function Payment() {
     </Layout>
   );
 }
+
+export default Payment

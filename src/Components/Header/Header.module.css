@@ -66,6 +66,7 @@
     display: none;
 }
 
+/* media queries for small screens */
 @media screen and (max-width: 991px) {
 
     .location,
@@ -154,6 +155,7 @@
 
 }
 
+/* media queries for large screens */
 @media screen and (min-width: 992px) {
 
     .top_icon,

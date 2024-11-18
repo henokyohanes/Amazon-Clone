@@ -12,12 +12,14 @@ import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute"; 
 
+// Loading the Stripe public key from environment variables
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
-export default function Routing() {
+const Routing = () => {
   return (
     <Router>
       <Routes>
+        {/* Defining routes for different pages */}
         <Route exact path='/' element={<Home />} />
         <Route exact path='/auth' element={<Auth />} />
         <Route exact path='/account' element={<Account />} />
@@ -31,3 +33,4 @@ export default function Routing() {
   )
 }
 
+export default Routing

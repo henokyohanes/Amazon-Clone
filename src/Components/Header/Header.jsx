@@ -13,8 +13,10 @@ import { MdAccountBox } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./Header.module.css";
 
+// header component
 const Header = () => {
 
+    // context and dispatch 
     const [{user, cart }, dispatch] = useContext(DataContext);
     const total = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -136,6 +138,8 @@ const Header = () => {
                     </ul>
                 </div>
             </div>
+
+            {/* delivery container for mobile */}
             <div className={styles.delivery_container}>
                 <div className={styles.delivery}>
                     <LuMapPin size={20} />

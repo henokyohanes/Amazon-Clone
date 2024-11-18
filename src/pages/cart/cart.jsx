@@ -7,22 +7,29 @@ import styles from './Cart.module.css'
 import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat'
 import { ActionTypes } from '../../utils/actionType'
 
-export default function Cart() {
+const Cart = () => {
+  // Destructuring cart and user from DataContext for global state management
+  const [{ cart, user }, dispatch] = useContext(DataContext);
 
-  const [{cart, user}, dispatch] = useContext(DataContext);
-
+  // Increment quantity of item in the cart
   const increment = (item) => {
-    dispatch({ type: ActionTypes.ADD_TO_CART, item: { ...item, quantity: 1 } })
-  }
+    dispatch({ type: ActionTypes.ADD_TO_CART, item: { ...item, quantity: 1 } });
+  };
 
+  // Decrement quantity of item in the cart
   const decrement = (item) => {
-    dispatch({ type: ActionTypes.REMOVE_FROM_CART, item: { ...item, quantity: 1 } })
-  }
+    dispatch({
+      type: ActionTypes.REMOVE_FROM_CART,
+      item: { ...item, quantity: 1 },
+    });
+  };
 
   return (
     <Layout>
       <div className={styles.cart}>
         <p className={styles.title}>Shopping Cart</p>
+
+        {/* Divider for displaying cart content or empty state */}
         <div className={styles.cart_divider}>
           {cart?.length === 0 ? (
             <div className={styles.cart_empty}>
@@ -35,12 +42,9 @@ export default function Cart() {
             <div className={styles.cart_container}>
               {cart?.map((item) => (
                 <div key={item.id} className={styles.cart_item}>
-                  <SingleProduct
-                    {...item}
-                    flex={true}
-                    addButton={false}
-                  />
+                  <SingleProduct {...item} flex={true} addButton={false} />
                   <div>
+                    {/* Quantity controls for the cart item */}
                     <button
                       className={styles.button}
                       onClick={() => decrement(item)}
@@ -60,6 +64,7 @@ export default function Cart() {
             </div>
           )}
 
+          {/* Displaying the total and checkout button if there are items in the cart */}
           {cart?.length > 0 && (
             <div className={styles.cart_total}>
               <div>
@@ -89,3 +94,5 @@ export default function Cart() {
     </Layout>
   );
 }
+
+export default Cart

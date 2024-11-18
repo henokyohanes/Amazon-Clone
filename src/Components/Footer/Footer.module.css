@@ -102,6 +102,7 @@
 
 }
 
+/* Large devices (laptops/desktops, 992px and up) */
 @media screen and (min-width: 992px) {
 
     .mobile_footer, .footer_signin, .mobile_privacy {

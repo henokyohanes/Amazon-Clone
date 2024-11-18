@@ -60,7 +60,7 @@ const Auth = () => {
     <Layout>
       <div className={styles.auth}>
         <Link to="/">
-          <img src={logo} alt="Amazon logo" className={styles.logo} />
+          <img className={styles.logo} src={logo} alt="Amazon logo" loading="lazy"/>
         </Link>
         <div className={styles.container}>
           <h1 className={styles.title}>Sign in</h1>

@@ -65,7 +65,7 @@ const CarouselEffect = () => {
                 {/* Mapping over the images array to dynamically render each slide */}
                 {images.map((image, index) => (
                     <div key={index}>
-                        <img src={image} alt="Carousel image" />
+                        <img src={image} alt="Carousel image" loading='lazy'/>
                     </div>
                 ))}
             </Carousel>

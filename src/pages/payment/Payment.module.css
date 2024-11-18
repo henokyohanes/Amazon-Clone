@@ -75,27 +75,30 @@
     width: clamp(4em, 10vw, 20em);
 }
 
+.products {
+    padding-top: 1em;
+}
+
 .products p {
     font-size: clamp(.6em, 1.5vw, 1.2em) !important;
 }
 
 .place_order {
-    width: clamp(1em, 90vw, 60em);
+    width: clamp(20.5em, 60vw, 45em);
     display: flex;
-    justify-content: space-between; 
     gap: 1em;  
-    padding: 1em 0.5em;
-    margin: 2em auto;
+    padding: 1em;
+    margin: 2vw 0;
+    margin-left: -8em;
     border: 1px solid lightgray;
     border-radius: .5em;
 }
 
 .place_order_btn {
-    font-size: clamp(.7em, 1.5vw, 1em);
+    font-size: clamp(.6em, 1.5vw, 1em);
     border: none;    
     background-color: #FFD814;
-    padding: 0 1em;
-    border-radius: 1.5em;
+    border-radius: 1em;
     cursor: pointer;
     min-width: 10em;
 }

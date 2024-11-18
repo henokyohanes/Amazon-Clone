@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { DataContext } from "../DataProvider/DataProvider";
-import { Link } from "react-router-dom";
 import logo from "../../assets/Images/amazon-logo.png";
 import flag from "../../assets/Images/us-flag.png";
+import { DataContext } from "../DataProvider/DataProvider";
+import { Link } from "react-router-dom";
 import { LuMapPin } from "react-icons/lu";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
@@ -30,7 +30,7 @@ const Header = () => {
                         <div className={styles.top_icon}>
                             <AiOutlineMenu size={30} />
                         </div>
-                        <img className={styles.top_logo} src={logo} alt="Amazon logo" />
+                        <img className={styles.top_logo} src={logo} alt="Amazon logo" loading="lazy"/>
                     </Link>
 
                     {/* right header */}
@@ -52,7 +52,7 @@ const Header = () => {
                             </div>
                         </div>
                         <a href="#" className={styles.language}>
-                            <img className={styles.flag} src={flag} alt="Us flag" />
+                            <img className={styles.flag} src={flag} alt="Us flag" loading="lazy"/>
                             <div>
                                 <div className={styles.language_text}>
                                     EN <IoMdArrowDropdown />

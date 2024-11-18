@@ -96,7 +96,7 @@ const Payment = () => {
       <div className={styles.checkout_header}>
 
         {/* Checkout header with logo and item count */}
-        <img src={logo} alt="amazon logo" className={styles.logo} />
+        <img className={styles.logo}src={logo} alt="amazon logo" loading="lazy"/>
         <p className={styles.checkout_title}>
           Checkout (
           <span className={styles.checkout_count}>{cart && total} items</span>)
@@ -114,43 +114,43 @@ const Payment = () => {
         </div>
         <p className={styles.change}>Change</p>
       </div>
-      <div className={styles.checkout_summary}>
 
-        {/* Order summary section */}
+      {/* Order summary section */}
+      <div className={styles.checkout_summary}>
         <p className={styles.all_titles}>2 - Order summary</p>
         <div className={styles.products}>
           {cart &&
             cart.map((item) => <SingleProduct key={item.id} {...item} flex />)}
         </div>
       </div>
-      <div className={styles.place_order}>
-
-        {/* Order total and terms notice */}
-        <span>
-          <p className={styles.order_total}>
-            order total: <CurrencyFormat value={totalPrice} />
-          </p>
-          <p className={styles.notice}>
-            By placing your order, you agree to my Amazon-clone notice and
-            conditions of use.
-          </p>
-        </span>
-      </div>
       <div className={styles.checkout_payment}>
         <p className={styles.all_titles}>3 - Payment method</p>
         <div className={styles.payment}>
           <form onSubmit={handlePayment} ref={formRef}>
-            
+
             {/* Stripe CardElement for credit card input */}
             <CardElement onChange={handleChange} options={cardElementOptions} />
             {error && <small className={styles.error}>{error}</small>}
-            <button
-              className={styles.place_order_btn}
-              type="submit"
-              disabled={processing}
-            >
-              {processing ? <FadeLoader /> : "Place your order"}
-            </button>
+            <div className={styles.place_order}>
+              <button
+                className={styles.place_order_btn}
+                type="submit"
+                disabled={processing}
+              >
+                {processing ? <BeatLoader size={8} /> : "Place your order"}
+              </button>
+
+              {/* Order total and terms notice */}
+              <span>
+                <p className={styles.order_total}>
+                  order total: <CurrencyFormat value={totalPrice} />
+                </p>
+                <p className={styles.notice}>
+                  By placing your order, you agree to my Amazon-clone notice and
+                  conditions of use.
+                </p>
+              </span>
+            </div>
           </form>
         </div>
         <p className={styles.change}>Change</p>

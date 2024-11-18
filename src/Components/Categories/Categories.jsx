@@ -16,7 +16,7 @@ const Categories = () => {
         {categoryData.map((data) => (
           <Link to={`/category/${data.name}`} key={data.id} className={styles.category}>
             <p className={styles.category_title}>{data.title}</p>
-            <img src={data.image} alt="category" />
+            <img src={data.image} alt="category" loading='lazy'/>
             <p className={styles.category_text}>Shop now</p>
           </Link>
         ))}

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoMdArrowDropup } from "react-icons/io";
-import logo from '../../assets/Images/amazon-logo.png'
 import { GrLanguage } from "react-icons/gr";
 import { RiExpandUpDownFill } from "react-icons/ri";
+import logo from '../../assets/Images/amazon-logo.png'
 import flag from '../../assets/Images/us-flag.png'
 import styles from './Footer.module.css'
 
@@ -113,7 +113,7 @@ const Footer = () => {
         {/* middle footer section */}
         <div className={styles.footer_logo}>
           <Link to="/" onClick={scrollToTop} className={styles.logo_link}>
-            <img className={styles.logo} src={logo} alt="Amazon logo" />
+            <img className={styles.logo} src={logo} alt="Amazon logo" loading='lazy'/>
           </Link>
           <div className={styles.logo_language}>
             <GrLanguage size={15} />
@@ -123,7 +123,7 @@ const Footer = () => {
             </span>
           </div>
           <div className={styles.logo_country}>
-            <img className={styles.flag} src={flag} alt="Us flag" />
+            <img className={styles.flag} src={flag} alt="Us flag" loading='lazy'/>
             United States
           </div>
         </div>

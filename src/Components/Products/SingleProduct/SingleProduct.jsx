@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Rating from "@mui/material/Rating";
-import { IoIosArrowDown } from "react-icons/io";
 import CurrencyFormat from "../../CurrencyFormat/CurrencyFormat";
+import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
-import styles from "../Products.module.css";
 import { DataContext } from "../../DataProvider/DataProvider";
 import { ActionTypes } from "../../../utils/actionType";
+import styles from "../Products.module.css";
 
 // Define the SingleProduct functional component
 const SingleProduct = ({image, id, title, rating, price, description, flex, detail, addButton,}) => {
@@ -36,7 +36,7 @@ const SingleProduct = ({image, id, title, rating, price, description, flex, deta
       {/* Product image section */}
       <div>
         <Link to={`/products/${id}`} onClick={scrollToTop}>
-          <img className={styles.image} src={image} alt="Product image" />
+          <img className={styles.image} src={image} alt="Product image" loading="lazy"/>
         </Link>
       </div>
 

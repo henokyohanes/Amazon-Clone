@@ -13,7 +13,7 @@
 ---
 
 ## 📜 Project Overview
-The **Amazon Clone App**  is a full-featured e-commerce web application that replicates the core functionalities of Amazon. It allows users to browse products, add items to their cart, and securely complete purchases using Stripe. This project demonstrates proficiency in full-stack development, covering frontend, backend, authentication, and payment integration.
+The **Amazon Clone App** is a full-featured e-commerce web application that replicates the core functionalities of Amazon. It allows users to browse products, add items to their cart, and securely complete purchases using Stripe. This project demonstrates proficiency in full-stack development, covering frontend, backend, authentication, and payment integration.
 
 ---
 
@@ -82,6 +82,8 @@ The Amazon Clone app is live! Click the link below to access the platform:
    - **Authentication**: Firebase Authentication (Google, Email/Password)
 
    - **Payments**: Stripe API
+
+   - **API Handling**: Axios for making API requests
 
    - **Styling**: CSS (Bootstrap for components)
 
